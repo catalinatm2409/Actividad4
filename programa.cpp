@@ -3,6 +3,8 @@
 #include <math.h>
 using namespace std;
 
+//Esta funcion calcula la suma de m numeros.
+//Para esto entra por parametro un array con m numeros que se quieren sumar, el numero entero m tambien entra por parametro.
 float suma(int m,double a[]){
 float rta = 0;
 for(int i=0;i<m;i++){
@@ -11,6 +13,8 @@ rta += a[i];
 return rta;
 }
 
+//Esta funcion calcula la suma de los cuadrados de m numeros.
+//Para esto entra por parametro un array con m numeros, el numero entero m tambien entra por parametro.
 float sumatoria_cuadrados(int m, double a[]){
 float rta = 0;
 for(int i=0;i<m;i++){
@@ -125,6 +129,8 @@ int numero_primo(int n){
     return primo;
 }
 
+//Esta funcion retorna el maximo y minimo numero de una lista de m numeros.
+//Para esto entra por parametro un array con m numeros, el numero entero m tambien entra por parametro.
 double* maximo_minimo(int m,double a[]){
 double max = a[0];
 double min = a[0];
@@ -138,6 +144,41 @@ min = a[i];
 }
 double b[2] = {max, min};
 return b;
+}
+
+//Esta funcion calcula de forma recursiva el factorial del numero entero n.
+//Para esto entra como parametro el numero entero n.
+int factorial(int n){
+if(n==0){
+return 1;
+}
+else{
+return n*factorial(n-1);
+}
+}
+
+//Esta funcion usa la serie de Taylor de la funcion e^x, se calcula la sumatoria hasta una numero n de e^x.
+//Para esto entra como parametro el numero entero n y un numero real x.
+float aproximacion(int n, float x){
+float rta = 0;
+for(int i=0;i<n+1;i++){
+rta += pow(x,i)/factorial(i);
+}
+return rta;
+}
+
+//Esta funcion calcula de forma recursiva el n-esimo numero de la sucesion de Fibonacci.
+//Para esto entra como parametro el numero entero n.
+int fibonacci(int n){
+if(n==1){
+return 0;
+}
+else if(n==2){
+return 1;
+}
+else{
+return fibonacci(n-1)+fibonacci(n-2);
+}
 }
 
 int main(){
@@ -185,6 +226,12 @@ cout<<"Ingrese el valor "<<i;cin>>c[i];
 }
 cout<<"El numero maximo es "+to_string(maximo_minimo(j,c)[0])+" y el numero minimo es "+to_string(maximo_minimo(j,c)[1])<<endl;
 
+cout<<"PUNTO 6"<<endl;
+int f;
+cout<<"Ingrese el n-esimo numero de la sucesion de Fibonacci que desea consultar: "<<endl;
+cin>>f;
+cout<<"El numero #"+to_string(f)+" de la sucesion de fibonacci es: "+to_string(fibonacci(f))<<endl;
+
 cout<<"PUNTO 7"<<endl;
 int x;
 cout<<"¿Para cuál número desea sumar sus propios dígitos?: "<<endl;
@@ -193,9 +240,18 @@ cout<<"La suma de los dígitos es: "+to_string(suma_digitos(x))<<endl;
 
 cout<<"PUNTO 8"<<endl;
 int o;
-cout<<"Inserte el n-ésimo número que desea consultar: "<<endl;
+cout<<"Inserte el n-ésimo número primo que desea consultar: "<<endl;
 cin>>o;
 cout<<"El numero #"+to_string(o)+" primo es: "+to_string(numero_primo(o))<<endl;
+
+cout<<"PUNTO 9"<<endl;
+int u;
+int v;
+cout<<"Inserte el orden al que quiere aproximar e^x:  "<<endl;
+cin>>u;
+cout<<"Inserte un valor para x: "<<endl;
+cin>>v;
+cout<<"La aproximacion de orden "+to_string(u)+" de e^"+to_string(v)+ "es: "+to_string(aproximacion(u,v))<<endl;
 
 return 0;
 }
