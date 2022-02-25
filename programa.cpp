@@ -23,17 +23,21 @@ rta += pow(a[i],2);
 return rta;
 }
 
+//Esta función calcula la suma de los dígitos de un número
+//Recibe como parametro un entero x, el cual corresponde al número donde sus dígitos se sumarán. Retorna la suma de ellos.
 int suma_digitos(int x){
-    int sum =0;
-    int b=3;
-    while(b!=0){
-        b = x/10;
-        sum+= x%10;
-        x=b;
+    int res =0;
+    int coc=3;
+    while(coc!=0){
+        coc = x/10;
+        res+= x%10;
+        x=coc;
     }
-    return sum;
+    return res;
 }
 
+//Esta función calcula la forma binario de un número dado. 
+//Recibe como parametro un entero d, y retorna el número en forma binaria, es decir, en base 2.
 string numero_binario(int d){
     string bin;
     int res;
@@ -53,6 +57,8 @@ string numero_binario(int d){
     return num_b;
 }
 
+//Esta función calcula la forma hexadecimal de un número entero.
+//Recibe como parametro un entero p, y retorna la forma hexadecimal de este mismo, es decir, es base 16.
 string numero_hexadecimal(int p){
     string num_h;
     int res;
@@ -181,6 +187,7 @@ return fibonacci(n-1)+fibonacci(n-2);
 }
 }
 
+//Función principal donde se encuentra toda la interfaz de las funciones. Está dividida por puntos.
 int main(){
 int n;
 cout<<"PUNTO 1"<<endl;
