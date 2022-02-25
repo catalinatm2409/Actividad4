@@ -126,14 +126,6 @@ string numero_hexadecimal(int p){
       }
 }
 
-int numero_primo(int n){
-    int primo;
-    if (n==1){
-        primo =2;
-    }
-
-    return primo;
-}
 
 //Esta funcion retorna el maximo y minimo numero de una lista de m numeros.
 //Para esto entra por parametro un array con m numeros, el numero entero m tambien entra por parametro.
@@ -244,12 +236,6 @@ int x;
 cout<<"¿Para cuál número desea sumar sus propios dígitos?: "<<endl;
 cin>>x;
 cout<<"La suma de los dígitos es: "+to_string(suma_digitos(x))<<endl;
-
-cout<<"PUNTO 8"<<endl;
-int o;
-cout<<"Inserte el n-ésimo número primo que desea consultar: "<<endl;
-cin>>o;
-cout<<"El numero #"+to_string(o)+" primo es: "+to_string(numero_primo(o))<<endl;
 
 cout<<"PUNTO 9"<<endl;
 int u;
